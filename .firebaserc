@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kisancart-945f6": {
+      "hosting": {
+        "KisanCart": [
+          "kisancart-945f6"
+        ]
+      }
+    }
+  }
+}
