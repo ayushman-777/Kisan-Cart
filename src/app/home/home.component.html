@@ -1,1 +1,59 @@
-<p>home works!</p>
+
+<!--caraousel begins from here -->
+
+
+
+<ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper ">
+        <img [src]="images[0]" alt="Random first slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>"Agriculture is our wisest pursuit"</h3>
+       
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[1]" alt="Random second slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>"The farmers are the founders of human civilization."</h3>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[2]" alt="Random third slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>"It is only the farmer who faithfully plants seeds in the Spring, who reaps a harvest in the Autumn."</h3>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  
+  
+  <!--caraousel ends here -->
+  <!--beginning of the first card -->
+  <section >
+    <div class="card customise--card" style="margin-left: 100px;">
+      <img src="../../assets/capture-5.jpg" class="card-img-top" alt="sell">
+      <div class="card-body">
+        <h5 class="card-title">SELL WITH US </h5>
+        <p class="card-text">SELL YOUR CROP HERE AT A REASONABLE PRICE</p>
+        <a href="#" class="btn btn-primary">SELL</a>
+      </div>
+    </div>
+    <div class="card customise--card" style="margin-left: 100px;">
+      <img src="../../assets/capture-5.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">BUY WITH US</h5>
+        <p class="card-text">BUY GOOD QUALITY PRODUCT HERE</p>
+        <a href="#" class="btn btn-primary">BUY</a>
+      </div>
+    </div>
+  </section>
+  <!--End of the first card -->
+  <router-outlet></router-outlet>
+  <footer>
+    All copyright Reserved &#169;
+  </footer>
