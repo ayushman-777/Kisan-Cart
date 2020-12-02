@@ -1,0 +1,35 @@
+.container
+{
+    background-image: url(../../assets/capture-7.jpg);
+    background-size: cover;
+}
+.customise--button
+{
+   margin-left: 6rem;
+   background-color:purple;
+   color: white;
+   min-width: 300px;
+}
+
+.customise--button:hover
+{
+   box-shadow: 0 0 20px 20px grey;
+}
+
+h3
+{
+    text-align: center;
+}
+.customise--fp
+{
+    text-align: center; 
+    margin-left: 9rem;
+    color: white
+}
+.customise--rh
+{
+   color: black; 
+   text-align: center; 
+   margin-left: 7rem;
+   color: white;
+}
