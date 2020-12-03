@@ -1,31 +1,45 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-customize">
-  <a class="navbar-brand" href="#">Kisaan</a>
+<nav class="navbar navbar-expand-lg fixed-top navbar-success bg-dark">
+  <a class="navbar-brand" href="#">KISSAN-CART</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="navbar-light navbar-toggler-icon" style="color: white;">☰</span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<<<<<<< Updated upstream
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link active" routerLink="home" href="#"><i class="fas fa-home"></i>&nbsp;Home</a>
+=======
+    <ul class="navbar-nav  mr-auto">
+      <li class="nav-item ml-5">
+        <a class="nav-link" routerLink="home" href="#"><i class="fas fa-home"></i>Home</a>
+>>>>>>> Stashed changes
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item ml-5">
         <a class="nav-link" routerLink="about-us" href="#"><i class="fas fa-phone-volume"></i>&nbsp;Contact Us</a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item ml-5">
         <a class="nav-link" routerLink="about-us" href="#"><i class="fas fa-address-card"></i>&nbsp;About Us</a>
       </li>
 
+<<<<<<< Updated upstream
       <li class="nav-item signup">
         <a class="nav-link" routerLink="sign-up" href="#"><i class="fas fa-user-plus"></i>Sign-Up</a>
       </li>
 
       <li class="nav-item login">
         <a class="nav-link" routerLink="login" href="#"><i class="fas fa-sign-in-alt"></i>Login</a>
+=======
+      <li class="nav-item ml-5">
+        <a class="nav-link" (click)="openSignUp()" href="#"><i class="fas fa-user-plus"></i>Sign-Up</a>
+      </li>
+
+      <li class="nav-item ml-5">
+        <a class="nav-link" (click)="openLogin()" href="#"><i class="fas fa-sign-in-alt"></i>Login</a>
+>>>>>>> Stashed changes
       </li>
     </ul>
   </div>
 </nav>
-
 <router-outlet></router-outlet>
