@@ -11,3 +11,8 @@ footer{
 footer a{
   color: white;
 }
+
+pre{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: larger;
+}
