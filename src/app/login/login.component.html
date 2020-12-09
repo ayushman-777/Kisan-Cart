@@ -4,24 +4,39 @@
   <div class="form-group row">
     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control form-control-sm" id="colFormLabelSm"  type="email"  placeholder="Email-Id Here " required>
+      <input type="email" class="form-control form-control-sm" id="colFormLabelSm"  name="email" [(ngModel)]="email"  placeholder="Email-Id Here " required>
     </div>
   </div>
   <br>
   <div class="form-group row">
     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Password</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control form-control-sm" id="colFormLabelSm"  type="password"  placeholder="Password Here" required>
+      <input type="password" class="form-control form-control-sm" id="colFormLabelSm"  name="password" [(ngModel)]="password" placeholder="Password Here" required>
     </div>
   </div>
   <br>
     <div class="form-group row" >
-      <button type="submit" class="btn btn-lg customise--button">Click To continue</button>
+      <button type="submit" (click)="login()" class="btn btn-lg customise--button">Click To continue</button>
    </div>
- </form> 
-   <a href="#" class="customise--fp">Forgot Password????</a>
-   <br><br><br><br>
-   <a href="#" class="customise--rh">Hasn't signed up.Register Here  </a>
+ </form>
+ <div class="form-group">
+  <p *ngIf="errorMessage.length > 0" class="text-danger">
+      {{errorMessage}}</p>
+  <p *ngIf="message.length > 0" class="text-info">
+        {{message}} </p>    
+
+  <p *ngIf="error.message.length > 0" class="text-danger">
+      {{error.message}} </p>
+</div>
+ 
+ <!-- <div class="alert alert-danger" role="alert" *ngIf="isFormValid">
+  Please fill all fields.
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="isUserEmailLoggedIn()">
+  Invalid user or password.
+</div>  -->
+   <a href="#" class="customise--fp" (click)="onForget()">Forgot Password????</a>
+   <a href="#" class="customise--rh" (click)="openSignUp()">Hasn't signed up.Register Here  </a>
    <br><br>
 
-</div>        
+</div> 
