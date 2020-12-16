@@ -1,0 +1,26 @@
+.container
+{
+    background-image: url(../../assets/capture-8.jpg);
+    background-size: cover;
+}
+.customise--button
+{
+   margin-left: 6rem;
+   background-color:purple;
+   color: white;
+   min-width: 300px;
+}
+label{
+    color: blanchedalmond;
+    font-weight: bolder;
+}
+.customise--button:hover
+{
+   box-shadow: 0 0 20px 20px grey;
+}
+
+
+h3
+{
+    text-align: center;
+}
