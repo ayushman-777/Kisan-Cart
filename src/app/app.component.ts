@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {LoginComponent} from './login/login.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ export class AppComponent {
   loginModelRef: BsModalRef;
   signUpModelRef: BsModalRef;
 
-  constructor(private modalService: BsModalService) {
+  constructor(public router: Router, private modalService: BsModalService) {
   }
 
   openLogin(): void {
