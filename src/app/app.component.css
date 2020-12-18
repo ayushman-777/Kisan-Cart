@@ -1,8 +1,8 @@
- .navbar{ 
- background-color:#125EA9;
-} 
-
-.navbar-nav > .active > a { 
-  background-color: black;
-  border-radius: 15px; 
-}
+ .navbar {
+     background-color: #125EA9;
+ }
+ 
+ .active>a {
+     background-color: black;
+     border-radius: 15px;
+ }
