@@ -14,7 +14,7 @@ import {SignUpComponent} from './sign-up/sign-up.component';
   declarations: [
     AppComponent,
     routingComponents,
-    CropDetailsComponent
+    CropDetailsComponent,
     LoginComponent,
     SignUpComponent,
     routingComponents
