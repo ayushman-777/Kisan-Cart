@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ModalModule} from 'ngx-bootstrap';
 import {LoginComponent} from './login/login.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {SignUpComponent} from './sign-up/sign-up.component';
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
