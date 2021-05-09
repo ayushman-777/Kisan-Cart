@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {LoginComponent} from './login/login.component';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {AuthService} from './services/auth.service';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +13,11 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'KisanCart';
-  name = 'varad';
 
   loginModelRef: BsModalRef;
   signUpModelRef: BsModalRef;
 
-  constructor(private modalService: BsModalService , public authservice: AuthService, private router: Router,private afu: AngularFireAuth) {
+  constructor(private modalService: BsModalService, public authService: AuthService, private router: Router, private angularFireAuth: AngularFireAuth) {
   }
 
   openLogin(): void {
@@ -29,16 +28,11 @@ export class AppComponent {
     this.signUpModelRef = this.modalService.show(SignUpComponent);
   }
 
-  signout(): void
-  {
-    this.afu.signOut;
-    console.log("LoggedOut");
+  get isUserLoggedIn(): boolean {
+    return this.authService.isUserEmailLoggedIn;
   }
-  
-  loggedin(): boolean{
-   if(this.authservice.isUserEmailLoggedIn)
-     return true;
-   else
-     return false;
+
+  signOutUser() {
+    this.authService.signOut();
   }
 }

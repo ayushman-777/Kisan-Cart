@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {SignUpComponent} from '../sign-up/sign-up.component';
-import { NgForm } from '@angular/forms';
 import {AuthService} from '../services/auth.service';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,14 +10,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
-  email = "";
-  password = "";
+
+  email = '';
+  password = '';
   message = '';
   errorMessage = ''; // validation error handle
-  error: { name: string, message: string } = { name: '', message: '' }; // for firbase error handle
+  error: { name: string, message: string } = {name: '', message: ''}; // for firbase error handle
 
-  constructor(private modalService: BsModalService , private modalRef : BsModalRef , private authservice: AuthService, private router: Router) { }
+  constructor(private modalService: BsModalService
+    ,         private modalRef: BsModalRef, private authService: AuthService, private router: Router) {
+  }
 
   signUpModelRef: BsModalRef;
 
@@ -27,39 +28,38 @@ export class LoginComponent implements OnInit {
 
   clearErrorMessage() {
     this.errorMessage = '';
-    this.error = { name: '', message: '' };
+    this.error = {name: '', message: ''};
   }
 
-  login()
-  {
+  login() {
     this.clearErrorMessage();
     if (this.validateForm(this.email, this.password)) {
-      this.authservice.loginWithEmail(this.email, this.password)
+      this.authService.loginWithEmail(this.email, this.password)
         .then(() => {
-          this.message = "You're LoggedIn"
+          this.message = 'You\'re LoggedIn';
           this.modalRef.hide();
-          console.log("You're Logged In")
+          console.log('You\'re Logged In');
         }).catch(_error => {
-          this.error = _error
-         // this.router.navigate([''])
-        })
+        this.error = _error;
+        // this.router.navigate([''])
+      });
     }
- 
+
   }
 
   validateForm(email, password) {
     if (email.lenght === 0) {
-      this.errorMessage = "Please Enter Email id";
+      this.errorMessage = 'Please Enter Email id';
       return false;
     }
 
     if (password.lenght === 0) {
-      this.errorMessage = "Please Enter password";
+      this.errorMessage = 'Please Enter password';
       return false;
     }
 
     if (password.lenght < 6) {
-      this.errorMessage = "password should be at least 6 char";
+      this.errorMessage = 'password should be at least 6 char';
       return false;
     }
 
@@ -67,6 +67,7 @@ export class LoginComponent implements OnInit {
     return true;
 
   }
+
   openSignUp(): void {
     this.signUpModelRef = this.modalService.show(SignUpComponent);
   }
@@ -74,7 +75,7 @@ export class LoginComponent implements OnInit {
   async onForget() {
     try {
       const email = this.email;
-      await this.authservice.resetPassword(email);
+      await this.authService.resetPassword(email);
       window.alert('Email sent, check your inbox!');
       this.router.navigate(['/login']);
     } catch (error) {

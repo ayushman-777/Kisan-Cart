@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
 
@@ -7,23 +7,24 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  
+
   authState: any = null;
 
-  constructor(private afu: AngularFireAuth, private router: Router) { }
-  
+  constructor(private angularFireAuth: AngularFireAuth) {
+  }
+
   // all firebase getdata functions
 
   get isUserAnonymousLoggedIn(): boolean {
-    return (this.authState !== null) ? this.authState.isAnonymous : false
+    return (this.authState !== null) ? this.authState.user.isAnonymous : false;
   }
 
   get currentUserId(): string {
-    return (this.authState !== null) ? this.authState.uid : ''
+    return (this.authState !== null) ? this.authState.uid : '';
   }
 
   get currentUserName(): string {
-    return this.authState['email']
+    return this.authState['email'];
   }
 
   get currentUser(): any {
@@ -31,39 +32,44 @@ export class AuthService {
   }
 
   get isUserEmailLoggedIn(): boolean {
-    if ((this.authState !== null) && (!this.isUserAnonymousLoggedIn)) {
-      return true
-    } else {
-      return false
-    }
+    return (this.authState !== null) && (!this.isUserAnonymousLoggedIn);
   }
 
-registerWithEmail(email: string, password: string) {
-    return this.afu.createUserWithEmailAndPassword(email, password)
+  registerWithEmail(email: string, password: string) {
+    return this.angularFireAuth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
-        this.authState = user
+        this.authState = user;
       })
       .catch(error => {
-        console.log(error)
-        throw error
+        console.log(error);
+        throw error;
       });
   }
 
-  loginWithEmail(email: string, password: string)
-  {
-    return this.afu.signInWithEmailAndPassword(email, password)
+  loginWithEmail(email: string, password: string) {
+    return this.angularFireAuth.signInWithEmailAndPassword(email, password)
       .then((user) => {
-        this.authState = user
+        this.authState = user;
+        console.log(user);
       })
       .catch(error => {
-        console.log(error)
-        throw error
+        console.log(error);
+        throw error;
       });
+  }
+
+  signOut(): void {
+    this.authState = null;
+    this.angularFireAuth.signOut().then(() => {
+      console.log('LoggedOut');
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   async resetPassword(email: string): Promise<void> {
     try {
-      return this.afu.sendPasswordResetEmail(email);
+      return this.angularFireAuth.sendPasswordResetEmail(email);
     } catch (error) {
       console.log(error);
     }
