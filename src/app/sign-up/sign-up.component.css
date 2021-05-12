@@ -5,10 +5,10 @@
 }
 .customise--button
 {
-   margin-left: 6rem;
+   margin-left: 30%;
    background-color:purple;
    color: white;
-   min-width: 300px;
+   min-width: 150px;
 }
 label{
     color: blanchedalmond;

@@ -5,6 +5,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {AuthService} from './services/auth.service';
 import {Router} from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +18,7 @@ export class AppComponent {
   loginModelRef: BsModalRef;
   signUpModelRef: BsModalRef;
 
-  constructor(private modalService: BsModalService, public authService: AuthService, private router: Router, private angularFireAuth: AngularFireAuth) {
-  }
+  constructor(private modalService: BsModalService, public authService: AuthService, private router: Router, private angularFireAuth: AngularFireAuth, private snackBar: MatSnackBar) {}
 
   openLogin(): void {
     this.loginModelRef = this.modalService.show(LoginComponent);
@@ -34,5 +34,6 @@ export class AppComponent {
 
   signOutUser() {
     this.authService.signOut();
+    this.snackBar.open('Logged Out Successfully!','');
   }
 }

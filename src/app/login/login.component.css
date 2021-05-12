@@ -22,8 +22,8 @@ h3
 }
 .customise--fp
 {
-    text-align: center; 
-    margin-left: 9rem;
+    text-align: center;
+    margin-left: 9rem;  
     color: white
 }
 .customise--rh
@@ -31,5 +31,4 @@ h3
    color: black; 
    text-align: center; 
    margin-left: 7rem;
-   color: white;
 }
