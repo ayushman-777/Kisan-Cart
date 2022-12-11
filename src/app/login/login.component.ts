@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   password = '';
   message = '';
   errorMessage = ''; // validation error handle
-  error: { name: string, message: string } = {name: '', message: ''}; // for firbase error handle
+  error: { name: string, message: string } = {name: '', message: ''}; // for firebase error handle
 
   constructor(private modalService: BsModalService
     ,         private modalRef: BsModalRef, private authService: AuthService, private router: Router) {
@@ -26,12 +26,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  clearErrorMessage() {
+  clearErrorMessage(): void {
     this.errorMessage = '';
     this.error = {name: '', message: ''};
   }
 
-  login() {
+  login(): void {
     this.clearErrorMessage();
     if (this.validateForm(this.email, this.password)) {
       this.authService.loginWithEmail(this.email, this.password)
@@ -39,15 +39,15 @@ export class LoginComponent implements OnInit {
           this.message = 'You\'re LoggedIn';
           this.modalRef.hide();
           console.log('You\'re Logged In');
-        }).catch(_error => {
-        this.error = _error;
+        }).catch(error => {
+        this.error = error;
         // this.router.navigate([''])
       });
     }
 
   }
 
-  validateForm(email, password) {
+  validateForm(email, password): boolean {
     if (email.lenght === 0) {
       this.errorMessage = 'Please Enter Email id';
       return false;
@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
     this.signUpModelRef = this.modalService.show(SignUpComponent);
   }
 
-  async onForget() {
+  async onForget(): Promise<any> {
     try {
       const email = this.email;
       await this.authService.resetPassword(email);
